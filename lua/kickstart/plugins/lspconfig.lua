@@ -212,7 +212,15 @@ return {
         clangd = {},
         pyright = {},
         rust_analyzer = {},
+        jsonls = {},
+        -- yamlls = {},
+        dockerls = {},
+        sqlls = {},
         ts_ls = {},
+        html = {},
+        cssls = {},
+        tailwindcss = {},
+        svelte = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -245,6 +253,11 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'eslint', -- Format js/ts
+        'prettier',
+        'prettierd',
+        'isort',
+        'black',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -264,5 +277,6 @@ return {
       }
     end,
   },
+  { 'nvimtools/none-ls.nvim', opts = {} },
 }
 -- vim: ts=2 sts=2 sw=2 et
